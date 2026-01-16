@@ -1,0 +1,7 @@
+{
+  "name": "picMi | Fotografia Profissional",
+  "description": "Portfólio de fotografia profissional focado em impacto visual e estética moderna, transformando projetos e eventos em experiências visuais únicas.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
