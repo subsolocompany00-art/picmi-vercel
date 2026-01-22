@@ -93,7 +93,7 @@ export const TRANSLATIONS = {
     contact: {
       tag: 'CONTATO',
       t1: 'VAMOS',
-      t2: 'TRADUZIR',
+      t2: 'PRODUZIR',
       t3: 'SEU EVENTO?',
       desc: 'Inicie uma conversa para transformar sua ideia em impacto visual.',
       wa: 'WHATSAPP',
@@ -104,7 +104,7 @@ export const TRANSLATIONS = {
     }
   },
   en: {
-    nav: { home: 'HOME', about: 'ABOUT', academic: 'ACADEMIC', experience: 'EXPERIENCE', socials: 'SOCIALS', portfolio: 'PORTFOLIO', services: 'SERVICES', contact: 'CONTACT' },
+    nav: { home: 'HOME', about: 'ABOUT', academic: 'ACADEMIC', experience: 'EXPERIENCE', socials: 'SOCIALS', portfolio: 'PORTFÓLIO', services: 'SERVICES', contact: 'CONTACT' },
     hero: {
       tagline: 'picMi Photography Experience',
       title1: 'Image is',
@@ -185,7 +185,7 @@ export const TRANSLATIONS = {
     contact: {
       tag: 'CONTACT',
       t1: 'LET\'S',
-      t2: 'TRANSLATE',
+      t2: 'PRODUCE',
       t3: 'YOUR EVENT?',
       desc: 'Contact us for quotes and partnerships.',
       wa: 'WHATSAPP',
@@ -315,9 +315,9 @@ export const PHOTOS: Photo[] = [
 
   // Capas
   { id: 'cp-1', url: 'https://i.ibb.co/4gm87mnr/IMG-0712-1.jpg', category: 'capa', title: 'Capa IMG 0712' },
-  { id: 'cp-2', url: 'https://i.ibb.co/jkR99PqY/MG-7621.jpg', category: 'capa', title: 'Capa MG 7621' },
-  { id: 'cp-3', url: 'https://i.ibb.co/3ykXCzGQ/MG-9233.jpg', category: 'capa', title: 'Capa MG 9233' },
   { id: 'cp-4', url: 'https://i.ibb.co/ZRfjTRhD/MG-5852.jpg', category: 'capa', title: 'Capa MG 5852' },
+  { id: 'cp-3', url: 'https://i.ibb.co/3ykXCzGQ/MG-9233.jpg', category: 'capa', title: 'Capa MG 9233' },
+  { id: 'cp-2', url: 'https://i.ibb.co/jkR99PqY/MG-7621.jpg', category: 'capa', title: 'Capa MG 7621' },
   { id: 'cp-5', url: 'https://i.ibb.co/Qj1G3Gdm/MG-6692.jpg', category: 'capa', title: 'Capa MG 6692' },
   { id: 'cp-6', url: 'https://i.ibb.co/MDfjF9K3/MG-5873.jpg', category: 'capa', title: 'Capa MG 5873' },
   { id: 'cp-7', url: 'https://i.ibb.co/d0p8Y3mW/MG-5865.jpg', category: 'capa', title: 'Capa MG 5865' },
@@ -470,7 +470,7 @@ export const PHOTOS: Photo[] = [
   { id: 'mo-24', url: 'https://i.ibb.co/fGXYVB2t/MG-8196.jpg', category: 'makingof', title: 'Making Of MG 8196' },
   { id: 'mo-25', url: 'https://i.ibb.co/Qvg0hgPc/MG-8194.jpg', category: 'makingof', title: 'Making Of MG 8194' },
   { id: 'mo-26', url: 'https://i.ibb.co/HTThR2jb/MG-8185.jpg', category: 'makingof', title: 'Making Of MG 8185' },
-  { id: 'mo-27', url: 'https://i.ibb.co/Wp3jRmTS/MG-8177.jpg', category: 'makingof', title: 'Making Of MG 8177' },
+  { id: 'mo-27', url: 'https://i.ibb.co/Wp3jRmTS/MG-8177.jpg', category: 'makingof', title: 'Tableau 8177' },
   { id: 'mo-28', url: 'https://i.ibb.co/Q7mcj7dh/MG-8175.jpg', category: 'makingof', title: 'Making Of MG 8175' },
   { id: 'mo-29', url: 'https://i.ibb.co/Z5xBvG9/MG-8174.jpg', category: 'makingof', title: 'Making Of MG 8174' },
   { id: 'mo-30', url: 'https://i.ibb.co/Q3jMrR9q/MG-8172.jpg', category: 'makingof', title: 'Making Of MG 8172' },
@@ -539,16 +539,6 @@ export const PHOTOS: Photo[] = [
   { id: 'st-36', url: 'https://i.ibb.co/RkfYThR4/MG-6080.jpg', category: 'still', title: 'Still MG 6080' },
   { id: 'st-37', url: 'https://i.ibb.co/1fRgwq8w/MG-5958.jpg', category: 'still', title: 'Still MG 5958' },
   { id: 'st-38', url: 'https://i.ibb.co/bjtLNKkj/MG-5322.jpg', category: 'still', title: 'Still MG 5322' },
-  { id: 'st-54', url: 'https://i.ibb.co/Q3wpxxKC/MG-5220.jpg', category: 'still', title: 'Still MG 5220' },
-  { id: 'st-57', url: 'https://i.ibb.co/kTyJGFW/MG-5200.jpg', category: 'still', title: 'Still MG 5200' },
-  { id: 'st-58', url: 'https://i.ibb.co/4Z8XqCDv/MG-5196.jpg', category: 'still', title: 'Still MG 5196' },
-  { id: 'st-59', url: 'https://i.ibb.co/FbZyGqfM/MG-0428.jpg', category: 'still', title: 'Still MG 0428' },
-  { id: 'st-60', url: 'https://i.ibb.co/ymdBs2xx/MG-0414.jpg', category: 'still', title: 'Still MG 0414' },
-  { id: 'st-61', url: 'https://i.ibb.co/CpqDxK5r/MG-0395.jpg', category: 'still', title: 'Still MG 0395' },
-  { id: 'st-62', url: 'https://i.ibb.co/ymbdkfkq/MG-0362.jpg', category: 'still', title: 'Still MG 0362' },
-  { id: 'st-63', url: 'https://i.ibb.co/CsYnzRS4/MG-0347.jpg', category: 'still', title: 'Still MG 0347' },
-  { id: 'st-64', url: 'https://i.ibb.co/zTSqjLF2/MG-0318.jpg', category: 'still', title: 'Still MG 0318' },
-  { id: 'st-65', url: 'https://i.ibb.co/Jwzk4PtW/MG-0320.jpg', category: 'still', title: 'Still MG 0320' },
 
   // Ecommerce
   { id: 'ec-1', url: 'https://i.ibb.co/SDbtFY1w/IMG-4183.jpg', category: 'ecommerce', title: 'Ecommerce IMG 4183' },

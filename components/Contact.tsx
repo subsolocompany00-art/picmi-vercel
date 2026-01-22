@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TRANSLATIONS } from '../constants';
@@ -25,7 +24,19 @@ const Contact: React.FC<Props> = ({ lang }) => {
   );
 
   return (
-    <section id="contact" className="py-40 bg-[#050505] relative overflow-hidden">
+    <section id="contact" className="py-40 relative overflow-hidden bg-[#050505]">
+      {/* Background Image Layer */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://i.ibb.co/Qqcsjv8/MG-1117.jpg" 
+          alt="" 
+          className="w-full h-full object-cover select-none pointer-events-none"
+        />
+        {/* Subtle dark gradient overlay to ensure text legibility */}
+        <div className="absolute inset-0 bg-black/60 md:bg-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505]"></div>
+      </div>
+
       <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,17 +44,17 @@ const Contact: React.FC<Props> = ({ lang }) => {
           viewport={{ once: true }}
         >
           <motion.div 
-            animate={{ opacity: [0.4, 1, 0.4] }}
+            animate={{ opacity: [0.6, 1, 0.6] }}
             transition={{ duration: 3, repeat: Infinity }}
-            className="mono-font text-[#00ffff] text-[10px] font-bold tracking-[0.6em] mb-8 block uppercase"
+            className="pixel-font text-[#00ffff] text-[10px] font-bold tracking-[0.6em] mb-8 block uppercase drop-shadow-[0_0_10px_rgba(0,255,255,0.4)]"
           >
             [ {t.tag} ]
           </motion.div>
           
-          <h2 className="brand-font text-6xl md:text-8xl font-bold text-white mb-10 tracking-tighter">
+          <h2 className="pixel-font text-4xl md:text-7xl font-bold text-white mb-10 tracking-tighter leading-tight drop-shadow-lg">
             {t.t1} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff00ff] to-[#00ffff]">{t.t2}</span> {t.t3}
           </h2>
-          <p className="mono-font text-lg md:text-xl text-gray-400 mb-24 max-w-2xl mx-auto leading-relaxed">
+          <p className="vhs-font text-xl md:text-2xl text-gray-200 mb-24 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
             {t.desc}
           </p>
 
@@ -52,22 +63,22 @@ const Contact: React.FC<Props> = ({ lang }) => {
               href="https://w.app/picmi" 
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="p-10 bg-[#0a0a0a] border border-white/5 hover:border-[#25D366]/40 transition-all flex flex-col items-center"
+              whileHover={{ scale: 1.02, y: -5, backgroundColor: 'rgba(37, 211, 102, 0.1)' }}
+              className="p-10 bg-black/40 backdrop-blur-md border border-white/10 hover:border-[#25D366]/40 transition-all flex flex-col items-center group"
             >
               <WhatsAppIcon />
-              <span className="pixel-font text-xs text-white mt-6 mb-2">{t.wa}</span>
+              <span className="pixel-font text-[10px] text-white mt-6 mb-2 group-hover:text-[#25D366] transition-colors">{t.wa}</span>
             </motion.a>
 
             <motion.a 
               href="https://instagram.com/pic_mi__/" 
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="p-10 bg-[#0a0a0a] border border-white/5 hover:border-[#ff00ff]/40 transition-all flex flex-col items-center"
+              whileHover={{ scale: 1.02, y: -5, backgroundColor: 'rgba(255, 0, 255, 0.1)' }}
+              className="p-10 bg-black/40 backdrop-blur-md border border-white/10 hover:border-[#ff00ff]/40 transition-all flex flex-col items-center group"
             >
               <InstagramIcon />
-              <span className="pixel-font text-xs text-white mt-6 mb-2">{t.ig}</span>
+              <span className="pixel-font text-[10px] text-white mt-6 mb-2 group-hover:text-[#ff00ff] transition-colors">{t.ig}</span>
             </motion.a>
           </div>
         </motion.div>
