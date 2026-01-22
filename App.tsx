@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from './components/Hero';
 import About from './components/About';
+import Academic from './components/Academic';
 import Experience from './components/Experience';
+import Socials from './components/Socials';
 import Portfolio from './components/Portfolio';
 import Services from './components/Services';
 import Contact from './components/Contact';
@@ -27,6 +29,13 @@ const App: React.FC = () => {
   const handleLanguageSelect = (lang: 'pt' | 'en') => {
     setLanguage(lang);
     setShowLanguageSelector(false);
+  };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const t = TRANSLATIONS[language];
@@ -69,32 +78,26 @@ const App: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <Navbar lang={language} />
+            <Navbar lang={language} onAcademicClick={() => scrollToSection('academic')} />
             <main>
-              <Hero lang={language} />
+              <Hero lang={language} onAcademicClick={() => scrollToSection('academic')} />
               <About lang={language} />
+              <Academic lang={language} />
               <Experience lang={language} />
               <Portfolio lang={language} />
               <Services lang={language} />
               <Contact lang={language} />
+              <Socials lang={language} />
             </main>
             
-            <footer className="bg-[#050505] py-12 border-t border-[#ff00ff]/20 text-center flex flex-col items-center gap-6">
-              <div className="vhs-font text-gray-400 text-xl flex flex-col md:flex-row items-center gap-2 md:gap-4">
-                <span>&copy; {new Date().getFullYear()} picMi</span>
-                <span className="hidden md:inline">|</span>
+            <footer className="bg-[#050505] py-16 border-t border-[#ff00ff]/10 text-center flex flex-col items-center gap-6">
+              <div className="vhs-font text-gray-400 text-xl flex flex-col md:flex-row items-center gap-2 md:gap-4 uppercase tracking-widest">
+                <span>&copy; {new Date().getFullYear()} picMi Photography</span>
+                <span className="hidden md:inline opacity-20">|</span>
                 <span>{t.footer.rights}</span>
               </div>
-              
-              <motion.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                className="text-3xl md:text-4xl text-white select-none tracking-wider font-serif italic"
-              >
-                𝓹𝓲𝓬𝓜𝓲  𝓯𝓻𝓸𝓶  𝓩/$
-              </motion.div>
 
-              <div className="pixel-font text-[10px] text-[#00ffff]/30 animate-pulse mt-4">
+              <div className="pixel-font text-[10px] text-[#00ffff]/20 animate-pulse uppercase tracking-[0.5em]">
                 INSERT COIN TO CONTINUE
               </div>
             </footer>

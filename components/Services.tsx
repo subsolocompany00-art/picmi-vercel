@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GET_SERVICES, TRANSLATIONS } from '../constants';
@@ -12,8 +11,8 @@ const Services: React.FC<Props> = ({ lang }) => {
   const t = TRANSLATIONS[lang].services;
 
   return (
-    <section id="services" className="py-24 bg-[#0a0a0a] relative">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="services" className="py-24 bg-[#0a0a0a] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -37,7 +36,7 @@ const Services: React.FC<Props> = ({ lang }) => {
                 backgroundColor: 'rgba(255, 0, 255, 0.05)',
                 boxShadow: '0 0 20px rgba(255, 0, 255, 0.2)' 
               }}
-              className="p-8 border-2 border-[#ff00ff]/20 rounded-lg transition-all group"
+              className="p-8 border-2 border-[#ff00ff]/20 bg-[#050505]/80 backdrop-blur-sm rounded-lg transition-all group"
             >
               <div className="text-5xl mb-6 group-hover:scale-125 transition-transform inline-block">
                 {service.icon}

@@ -5,9 +5,10 @@ import { TRANSLATIONS } from '../constants';
 
 interface Props {
   lang: 'pt' | 'en';
+  onAcademicClick: () => void;
 }
 
-const Navbar: React.FC<Props> = ({ lang }) => {
+const Navbar: React.FC<Props> = ({ lang, onAcademicClick }) => {
   const [scrolled, setScrolled] = useState(false);
   const t = TRANSLATIONS[lang].nav;
 
@@ -17,13 +18,22 @@ const Navbar: React.FC<Props> = ({ lang }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const navItems = [
-    { name: t.home, href: '#home' },
-    { name: t.about, href: '#about' },
-    { name: t.experience, href: '#experience' },
-    { name: t.portfolio, href: '#portfolio' },
-    { name: t.services, href: '#services' },
-    { name: t.contact, href: '#contact' },
+    { name: t.home, href: '#home', action: () => scrollToSection('home') },
+    { name: t.about, href: '#about', action: () => scrollToSection('about') },
+    { name: t.academic, action: onAcademicClick },
+    { name: t.experience, href: '#experience', action: () => scrollToSection('experience') },
+    { name: t.socials, href: '#socials', action: () => scrollToSection('socials') },
+    { name: t.portfolio, href: '#portfolio', action: () => scrollToSection('portfolio') },
+    { name: t.services, href: '#services', action: () => scrollToSection('services') },
+    { name: t.contact, href: '#contact', action: () => window.open('https://w.app/picmi', '_blank') },
   ];
 
   return (
@@ -35,20 +45,23 @@ const Navbar: React.FC<Props> = ({ lang }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="#home" className="pixel-font text-2xl text-[#ff00ff] tracking-tighter hover:text-[#00ffff] transition-colors">
+        <button 
+          onClick={() => scrollToSection('home')} 
+          className="pixel-font text-2xl text-[#ff00ff] tracking-tighter hover:text-[#00ffff] transition-colors"
+        >
           picMi
-        </a>
+        </button>
         
         <ul className="hidden lg:flex space-x-8">
           {navItems.map((item) => (
             <li key={item.name}>
-              <a 
-                href={item.href}
+              <button 
+                onClick={item.action}
                 className="vhs-font text-xl text-white hover:text-[#ff00ff] transition-colors relative group"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00ffff] transition-all group-hover:w-full"></span>
-              </a>
+              </button>
             </li>
           ))}
         </ul>
