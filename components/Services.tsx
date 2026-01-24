@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GET_SERVICES, TRANSLATIONS } from '../constants';
@@ -11,53 +12,53 @@ const Services: React.FC<Props> = ({ lang }) => {
   const t = TRANSLATIONS[lang].services;
 
   return (
-    <section id="services" className="py-24 bg-[#0a0a0a] relative overflow-hidden">
+    <section id="services" className="py-20 bg-[#0a0a0a] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mb-16 text-right"
+          className="mb-12 text-center md:text-right"
         >
-          <h2 className="pixel-font text-3xl text-[#00ffff] mb-4">{t.title}</h2>
-          <p className="vhs-font text-xl text-gray-400">{t.desc}</p>
+          <h2 className="pixel-font text-2xl md:text-3xl text-[#00ffff] mb-3 uppercase">{t.title}</h2>
+          <p className="vhs-font text-lg text-gray-500 uppercase tracking-widest">{t.desc}</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
+              transition={{ delay: index * 0.1 }}
               whileHover={{ 
-                scale: 1.03, 
-                backgroundColor: 'rgba(255, 0, 255, 0.05)',
-                boxShadow: '0 0 20px rgba(255, 0, 255, 0.2)' 
+                scale: 1.02, 
+                backgroundColor: 'rgba(255, 0, 255, 0.03)',
+                borderColor: 'rgba(255, 0, 255, 0.3)' 
               }}
-              className="p-8 border-2 border-[#ff00ff]/20 bg-[#050505]/80 backdrop-blur-sm rounded-lg transition-all group"
+              className="p-8 border border-[#ff00ff]/10 bg-[#050505]/60 backdrop-blur-sm rounded-sm transition-all group"
             >
-              <div className="text-5xl mb-6 group-hover:scale-125 transition-transform inline-block">
+              <div className="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block">
                 {service.icon}
               </div>
-              <h3 className="pixel-font text-lg text-white mb-4 group-hover:text-[#00ffff] transition-colors">
+              <h3 className="pixel-font text-base text-white mb-4 group-hover:text-[#00ffff] transition-colors uppercase">
                 {service.title}
               </h3>
-              <p className="body-font text-gray-400 leading-relaxed">
+              <p className="body-font text-sm md:text-base text-gray-400 leading-relaxed font-light">
                 {service.description}
               </p>
-              <div className="mt-8 flex items-center gap-2">
-                <div className="h-2 flex-1 bg-gray-800 rounded-full overflow-hidden">
+              <div className="mt-8 flex items-center gap-3">
+                <div className="h-1 flex-1 bg-gray-900 rounded-full overflow-hidden">
                   <motion.div 
                     initial={{ width: 0 }}
                     whileInView={{ width: '100%' }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.5 + index * 0.2 }}
+                    transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
                     className="h-full bg-[#ff00ff]"
                   />
                 </div>
-                <span className="pixel-font text-[10px] text-[#ff00ff]">LVL. 99</span>
+                <span className="pixel-font text-[8px] text-[#ff00ff]/60">LVL_99</span>
               </div>
             </motion.div>
           ))}
