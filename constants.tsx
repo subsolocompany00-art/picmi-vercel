@@ -70,6 +70,7 @@ export const TRANSLATIONS = {
       photoparkDesc: 'Realizo diariamente trabalhos em eventos e locais como Mundo Pixar, CCXP e Parque da Mônica, com experiência com públicos de todas as idades.'
     },
     portfolio: {
+      intro: 'Aqui estão os tipos de fotografia que eu tenho pra te mostrar, escolha:',
       title: 'PORTFÓLIO',
       desc: 'Capturas que transcendem o momento.',
       categories: {
@@ -162,6 +163,7 @@ export const TRANSLATIONS = {
       photoparkDesc: 'I perform daily work in events and locations such as Mundo Pixar, CCXP...'
     },
     portfolio: {
+      intro: 'Here are the types of photography I have to show you, choose:',
       title: 'PORTFOLIO',
       desc: 'Capturas que transcendem o momento.',
       categories: {

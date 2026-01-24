@@ -8,7 +8,7 @@ interface Props {
   lang: 'pt' | 'en';
 }
 
-const OptimizedImage: React.FC<{ photo: Photo; categoryLabel: string; onClick: () => void; priority: boolean }> = ({ photo, categoryLabel, onClick, priority }) => {
+const OptimizedImage: React.FC<{ photo: Photo; categoryLabel: string; onClick: () => void; priority: boolean }> = ({ photo, onClick, priority }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
@@ -17,30 +17,19 @@ const OptimizedImage: React.FC<{ photo: Photo; categoryLabel: string; onClick: (
       onClick={onClick}
       className="relative group cursor-pointer overflow-hidden rounded-sm border border-white/5 hover:border-[#00ffff]/30 transition-all duration-500 shadow-sm break-inside-avoid mb-2 md:mb-4 bg-transparent"
     >
-      {/* Shimmer Placeholder */}
       {!isLoaded && (
         <div className="absolute inset-0 z-0 shimmer transition-opacity duration-300 min-h-[100px]" />
       )}
       
       <img 
         src={photo.url} 
-        alt={photo.title} 
+        alt="" 
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "low"}
         decoding={priority ? "sync" : "async"}
         onLoad={() => setIsLoaded(true)}
         className={`w-full h-auto block transition-all duration-700 md:group-hover:scale-[1.03] img-fade-in ${isLoaded ? 'img-loaded' : ''}`} 
       />
-      
-      {/* Overlay minimalista - Otimizado para visualização limpa */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 md:group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-2 md:p-4 z-20 pointer-events-none">
-        <div className="border-l-2 border-[#00ffff] pl-2">
-          <span className="pixel-font text-[6px] md:text-[7px] text-[#00ffff] mb-0.5 block uppercase tracking-widest">
-            {categoryLabel}
-          </span>
-          <h3 className="pixel-font text-[7px] md:text-[9px] text-white leading-tight uppercase truncate">{photo.title}</h3>
-        </div>
-      </div>
     </motion.div>
   );
 };
@@ -93,35 +82,42 @@ const Portfolio: React.FC<Props> = ({ lang }) => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-6 md:mb-12 text-center"
+          className="mb-8 md:mb-16 text-center"
         >
-          <h2 className="pixel-font text-xl md:text-4xl text-[#ff00ff] mb-2 md:mb-4 uppercase tracking-tighter">
+          <span className="pixel-font text-[12px] md:text-2xl lg:text-3xl tracking-tighter mb-8 block uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#ff00ff] to-[#00ffff] drop-shadow-[0_0_20px_rgba(255,0,255,0.5)] leading-relaxed max-w-5xl mx-auto">
+            {t.intro}
+          </span>
+          
+          <h2 className="pixel-font text-2xl md:text-5xl text-white mb-4 md:mb-6 uppercase tracking-tighter opacity-90">
             {t.title}
           </h2>
-          <p className="vhs-font text-sm md:text-lg text-gray-500 tracking-[0.2em] mb-6 md:mb-8">{t.desc}</p>
           
-          <div className="flex flex-wrap justify-center gap-1.5 md:gap-3 mb-8 md:mb-12">
+          <p className="vhs-font text-sm md:text-xl text-gray-500 tracking-[0.2em] mb-12 md:mb-20 uppercase opacity-60">
+            {t.desc}
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-3 md:gap-6 mb-12 md:mb-20">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => handleCategoryClick(cat)}
-                className={`px-3 py-1.5 md:px-4 md:py-2 pixel-font text-[7px] md:text-[9px] transition-all duration-300 border-2 relative overflow-hidden group ${
+                className={`px-5 py-3 md:px-10 md:py-5 pixel-font text-[9px] md:text-[12px] transition-all duration-300 border-2 relative overflow-hidden group rounded-sm shadow-xl ${
                   activeCategory === cat.id 
-                    ? 'text-white border-[#ff00ff] shadow-[0_0_15px_rgba(255,0,255,0.2)]' 
-                    : 'text-gray-500 border-white/5 hover:border-[#00ffff]/40 hover:text-white'
+                    ? 'text-white border-[#ff00ff] shadow-[0_0_30px_rgba(255,0,255,0.4)] scale-105' 
+                    : 'text-gray-300 border-white/20 bg-white/5 hover:border-[#00ffff]/80 hover:text-white hover:shadow-[0_0_25px_rgba(0,255,255,0.25)]'
                 }`}
               >
                 {activeCategory === cat.id && (
                   <motion.div 
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-[#ff00ff] z-0"
-                    transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
+                    className="absolute inset-0 bg-gradient-to-br from-[#ff00ff] via-[#7000ff] to-[#00ffff]/30 z-0"
+                    transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                   />
                 )}
-                <span className="relative z-10 flex items-center gap-1.5">
+                <span className="relative z-10 flex items-center gap-3 tracking-[0.2em] font-bold">
                   {cat.label}
                   {cat.id === 'clipes' && (
-                    <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="opacity-50 group-hover:opacity-100">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="opacity-90 group-hover:opacity-100 group-hover:scale-125 transition-all">
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                       <polyline points="15 3 21 3 21 9"></polyline>
                       <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -157,7 +153,7 @@ const Portfolio: React.FC<Props> = ({ lang }) => {
           
           {filteredPhotos.length === 0 && (
             <div className="flex flex-col items-center justify-center py-24 border border-dashed border-white/5 rounded-sm">
-              <div className="pixel-font text-[#ff00ff] text-[8px] mb-3 animate-pulse uppercase">NULL_CONTENT_FOUND</div>
+              <div className="pixel-font text-[#ff00ff] text-[8px] mb-3 animate-pulse uppercase tracking-widest">NULL_CONTENT_FOUND</div>
               <p className="vhs-font text-gray-500 text-xl uppercase tracking-[0.2em]">
                 {lang === 'pt' ? 'GALERIA VAZIA' : 'EMPTY GALLERY'}
               </p>
@@ -190,7 +186,7 @@ const Portfolio: React.FC<Props> = ({ lang }) => {
                 <h2 className="pixel-font text-[9px] md:text-base text-[#00ffff] mb-1">{selectedPhoto.title}</h2>
                 <p className="vhs-font text-[10px] md:text-sm text-gray-500 uppercase tracking-widest">{t.categories[selectedPhoto.category as keyof typeof t.categories]}</p>
               </div>
-              <button className="absolute -top-12 right-0 pixel-font text-[#ff00ff] text-[8px] md:text-[9px] hover:text-white transition-colors bg-white/5 px-3 py-1 rounded-sm border border-white/10">
+              <button className="absolute -top-12 right-0 pixel-font text-[#ff00ff] text-[8px] md:text-[9px] hover:text-white transition-colors bg-white/5 px-3 py-1 rounded-sm border border-white/10 shadow-[0_0_10px_rgba(255,0,255,0.1)]">
                 CLOSE [ ESC ]
               </button>
             </motion.div>
