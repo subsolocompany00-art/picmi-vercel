@@ -35,7 +35,7 @@ const About: React.FC<Props> = ({ lang }) => {
                   src="https://i.ibb.co/LXT8GLP3/50tonsdebritto-209.jpg" 
                   alt="Millena Almeida - picMi" 
                   onLoad={() => setLoadedMain(true)}
-                  className={`w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 img-fade-in ${loadedMain ? 'img-loaded' : ''}`}
+                  className={`w-full h-full object-cover transition-all duration-1000 img-fade-in ${loadedMain ? 'img-loaded' : ''}`}
                 />
               </div>
             </motion.div>
@@ -53,7 +53,7 @@ const About: React.FC<Props> = ({ lang }) => {
                   src="https://i.ibb.co/r2vMpw7m/DE84-BADA-47-CC-4432-86-E0-4-F3-CC00-CFA89.jpg" 
                   alt="Millena Almeida - picMi Portfolio" 
                   onLoad={() => setLoadedSec(true)}
-                  className={`w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 img-fade-in ${loadedSec ? 'img-loaded' : ''}`}
+                  className={`w-full h-full object-cover transition-all duration-1000 img-fade-in ${loadedSec ? 'img-loaded' : ''}`}
                 />
               </div>
             </motion.div>
